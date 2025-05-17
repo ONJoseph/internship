@@ -43,23 +43,17 @@ Make sure you have the following tools installed:
 - [Git](https://git-scm.com/)
 - A code editor like [VS Code](https://code.visualstudio.com/)
 
-Check Git version:
-```bash
-git --version
-
-# 🔧 Setup
+## 🔧 Setup
 
 Clone the repository to your local machine:
-
-```bash
 git clone https://github.com/ONJoseph/portfolio-landing-page.git
 cd portfolio-landing-page
 
-# 📦 Install
+## 📦 Install
 No installation steps required.
 Tailwind CSS is loaded via CDN — no build step or configuration needed.
 
-# 🚀 Usage
+## 🚀 Usage
 You can run the project by:
 
 - Opening index.html directly in your browser
@@ -67,18 +61,15 @@ OR
 
 - Using the Live Server extension in VS Code for a smoother development experience
 
-# 🌐 Front End
+## 🌐 Front End
 💻 Live Demo: [![GitHub Pages](https://img.shields.io/badge/View%20Live%20Demo-blue?style=for-the-badge&logo=github)](https://onjoseph.github.io/portfolio-landing-page)
 
 
 ## 👥 Author
 👤 Joseph Ogbole
-
-- GitHub: @ONJoseph
-
-- Twitter: @ONJoseph1
-
-- LinkedIn: Joseph Ogbole
+- GitHub: [@ONJoseph](https://github.com/ONJoseph)
+- Twitter: [@ONJoseph1](https://twitter.com/ONJoseph1)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/o-n-joseph-ba8425147/)
 
 ## 🔭 Future Features
 🔭 Future Features
@@ -90,7 +81,7 @@ OR
 
 🎯 Deploy live to GitHub Pages and connect custom domain.
 
-# 🤝 Contributing
+## 🤝 Contributing
 Contributions are welcome! Feel free to:
 
 Fork the repository
@@ -99,10 +90,10 @@ Create a new feature branch
 
 Submit a pull request
 
-# ⭐️ Show Your Support
+## ⭐️ Show Your Support
 If you liked this project, show some love by starring ⭐️ the repo on GitHub!
 
-# 🙏 Acknowledgements
+## 🙏 Acknowledgements
 Special thanks to:
 
 - AUTOWAVE Training Team
@@ -111,5 +102,5 @@ Special thanks to:
 
 - Visual Studio Code
 
-# 📝 License
-This project is licensed under the MIT License.
+## 📝 License
+This project is [MIT](./LICENSE) licensed.
