@@ -62,7 +62,7 @@ OR
 - Using the Live Server extension in VS Code for a smoother development experience
 
 ## 🌐 Front End
-💻 Live Demo: [![GitHub Pages](https://img.shields.io/badge/View%20Live%20Demo-blue?style=for-the-badge&logo=github)](https://onjoseph.github.io/portfolio-landing-page)
+💻 Live Demo: [![GitHub Pages](https://img.shields.io/badge/View%20Live%20Demo-blue?style=for-the-badge&logo=github)](https://onjoseph.github.io/internship/)
 
 
 ## 👥 Author
