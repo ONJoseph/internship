@@ -1,0 +1,3 @@
+Hi, I'm Joseph Ogbole. I'm an intern passionate about building web apps and solving real-world problems with code.
+I enjoy working with JavaScript, React, NodeJS, Express, Postgres, Mongoose, and Python. I'm eager to learn and grow in full-stack development.
+I'm also deeply interested in IT Support, Cybersecurity, and exploring the potential of Artificial Intelligence (AI) to enhance security and create smart systems.
