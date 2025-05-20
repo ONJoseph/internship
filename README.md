@@ -10,10 +10,10 @@
 Our mission is to build efficient, scalable systems that connect the power of technology with the needs of governments and organizations.
 
 **Proven Results**  
-We’ve partnered with leading public and private entities to deliver real-world solutions that drive measurable impact.
+We’ve partnered with public and private entities to deliver real-world solutions that drive measurable impact.
 
 **Empowering Teams**  
-We equip our clients and collaborators with tools that work, empowering them to achieve their goals confidently.
+We equip collaborators with tools that work, enabling them to achieve their goals confidently.
 
 ---
 
@@ -27,82 +27,52 @@ We equip our clients and collaborators with tools that work, empowering them to 
 
 ---
 
-## 🎯 Our Mission
-
-- **Empowering Growth**: Drive sustainable growth through cutting-edge tech solutions.  
-- **Unlocking Potential**: Unlock human potential by creating opportunities for everyone.  
-- **Building the Future**: Create a future-ready, collaborative platform.
-
----
-
 ## 🎓 Internship Program Overview
 
 - **Duration**: 6 Months  
 - **Mode**: Fully Remote  
 - **Structure**: Role-based, project-driven  
-- **Outcome**: Certificate, References, and Real Experience  
+- **Outcome**: Certificate, Reference (if applicable), and Real Experience  
 
 ---
 
-## 👩‍💻 Internship Roles & Responsibilities
+## 💼 Internship Focus
 
-### 📂 Admin Officer
-- Manage team documentation and reports  
-- Schedule virtual meetings  
-- Support intern coordination  
-
-### 💻 Fullstack Developer
-- Build and maintain digital tools  
-- Collaborate with product and design  
-- Contribute to sprints, reviews, and QA  
-
-### 📊 Business Analyst
-- Analyze business needs  
-- Create process flows  
-- Support product planning  
-
-### 📈 Product Manager
-- Lead product roadmap  
-- Coordinate with team members  
-- Own delivery and quality  
-
-### 📣 Social Media Manager
-- Plan and publish content  
-- Track engagement metrics  
-- Strengthen online presence  
+Interns work on weekly projects that simulate real-world challenges, collaborating on tools and systems that contribute meaningfully to broader solutions.  
+This repository serves as a central hub for storing and tracking weekly submissions, code, and documentation.
 
 ---
 
-## 🧰 Tools We Use
+## 🧰 Tools & Platforms
 
-- **Communication**: Zoho, Cliq, Google Meet  
+- **Communication**: Google Meet, Zoho, Cliq  
 - **Project Tracking**: Zoho, GitHub Projects  
 - **Development**: GitHub, Figma  
-- **Social Media**: Canva, Meta Suite  
+- **Design & Content**: Canva, Meta Suite  
 
 ---
 
-## ✅ What We Expect from You
+## ✅ Expectations
 
-- **Responsiveness**: Be responsive within 12–24 hours to keep projects moving efficiently  
-- **Clear Communication**: Communicate clearly and regularly  
-- **Ownership**: Take ownership and deliver honestly on all tasks  
-- **Collaboration**: Collaborate effectively with teammates to achieve common goals  
+- **Responsiveness**: Reply within 12–24 hours to keep workflows efficient  
+- **Clear Communication**: Share progress and blockers early and clearly  
+- **Ownership**: Be accountable and reliable in delivering assigned tasks  
+- **Teamwork**: Collaborate respectfully and efficiently with teammates  
 
 ---
 
 ## 🏁 Internship Outcomes
 
-- Final presentation or report  
-- Certificate of completion  
-- Personalized reference (if applicable)  
-- Real experience for your resume and LinkedIn  
+- Final presentation or weekly showcase  
+- Certificate of Completion  
+- Personalized Reference (upon performance and request)  
+- Practical experience to enhance your resume and portfolio  
 
 ---
 
 ## 📁 Repository Structure
 
-This repository hosts all weekly internship projects organized by week:
+This repository organizes intern work into weekly folders:
 
 - week-1/
 - week-2/
