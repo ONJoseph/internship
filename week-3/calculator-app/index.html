@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Autowave Calculator</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css" rel="stylesheet" />
+  <script defer src="script.js"></script>
+</head>
+<body class="flex items-center justify-center min-h-screen px-4">
+
+  <div class="w-full max-w-md p-4 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-lg">
+    
+    <!-- Header -->
+    <div class="flex justify-between items-center mb-4">
+      <h1 class="text-2xl font-bold">Calculator</h1>
+      <div>
+        <button id="toggle-theme" class="text-sm px-2 py-1 bg-gray-300 dark:bg-gray-700 rounded">🌙</button>
+        <button id="toggle-scientific" class="text-sm px-2 py-1 ml-2 bg-blue-400 text-white rounded">Sci</button>
+      </div>
+    </div>
+
+    <!-- Display -->
+    <input id="display" type="text" readonly class="w-full p-4 text-2xl text-right bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded mb-4" />
+
+    <!-- Buttons -->
+    <div id="buttons" class="grid grid-cols-4 gap-2">
+      <!-- Basic Buttons -->
+      <button class="btn">7</button>
+      <button class="btn">8</button>
+      <button class="btn">9</button>
+      <button class="btn operator">/</button>
+
+      <button class="btn">4</button>
+      <button class="btn">5</button>
+      <button class="btn">6</button>
+      <button class="btn operator">*</button>
+
+      <button class="btn">1</button>
+      <button class="btn">2</button>
+      <button class="btn">3</button>
+      <button class="btn operator">-</button>
+
+      <button class="btn">0</button>
+      <button class="btn">.</button>
+      <button class="btn equals bg-green-500 text-white">=</button>
+      <button class="btn operator">+</button>
+
+      <button class="btn col-span-4 bg-red-500 text-white" id="clear">C</button>
+    </div>
+
+    <!-- Scientific Buttons (hidden by default) -->
+    <div id="scientific-buttons" class="grid grid-cols-4 gap-2 mt-4 hidden">
+      <button class="btn sci-fn">sin</button>
+      <button class="btn sci-fn">cos</button>
+      <button class="btn sci-fn">tan</button>
+      <button class="btn sci-fn">√</button>
+      
+      <button class="btn sci-fn">^</button>
+      <button class="btn sci-fn">log</button>
+      <button class="btn sci-fn">π</button>
+      <button class="btn sci-fn">e</button>
+    </div>
+
+  </div>
+
+  <!-- Click sound -->
+  <audio id="click-sound" src="sounds/click.mp3" preload="auto"></audio>
+
+</body>
+</html>
