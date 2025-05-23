@@ -4,83 +4,58 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Autowave Calculator</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css" rel="stylesheet" />
-  <script defer src="script.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    }
+  </script>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white flex items-center justify-center min-h-screen p-4">
+<body class="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
 
-  <div class="w-full max-w-md bg-white dark:bg-gray-800 shadow-2xl rounded-3xl p-6 space-y-4">
+  <div class="w-full max-w-xs sm:max-w-sm md:max-w-md bg-white dark:bg-gray-800 shadow-lg rounded-xl p-6 space-y-4">
     
     <!-- Header -->
     <div class="flex justify-between items-center">
-      <h1 class="text-2xl font-bold">Autowave Calculator</h1>
-      <div class="flex gap-2">
-        <button id="toggle-theme" class="text-lg px-3 py-1 bg-gray-300 dark:bg-gray-700 rounded hover:bg-gray-400 dark:hover:bg-gray-600">🌙</button>
-        <button id="toggle-scientific" class="text-lg px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600">Sci</button>
-      </div>
+      <h1 class="text-2xl font-bold">Calculator</h1>
+      <button id="themeToggle" class="text-sm bg-gray-300 dark:bg-gray-700 px-3 py-1 rounded hover:opacity-80 transition">🌗</button>
     </div>
 
     <!-- Display -->
-    <input id="display" type="text" readonly class="w-full p-4 text-3xl text-right bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg" />
+    <input id="display" readonly class="w-full text-right text-3xl px-4 py-3 rounded bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600" />
 
-    <!-- Basic Buttons -->
-    <div id="buttons" class="grid grid-cols-4 gap-3 text-lg">
+    <!-- Keypad -->
+    <div class="grid grid-cols-4 gap-3 text-lg font-semibold">
+      <!-- Row 1 -->
       <button class="btn">7</button>
       <button class="btn">8</button>
       <button class="btn">9</button>
-      <button class="btn operator bg-yellow-400 dark:bg-yellow-600">/</button>
+      <button class="btn operator">/</button>
 
+      <!-- Row 2 -->
       <button class="btn">4</button>
       <button class="btn">5</button>
       <button class="btn">6</button>
-      <button class="btn operator bg-yellow-400 dark:bg-yellow-600">*</button>
+      <button class="btn operator">*</button>
 
+      <!-- Row 3 -->
       <button class="btn">1</button>
       <button class="btn">2</button>
       <button class="btn">3</button>
-      <button class="btn operator bg-yellow-400 dark:bg-yellow-600">-</button>
+      <button class="btn operator">-</button>
 
+      <!-- Row 4 -->
       <button class="btn">0</button>
       <button class="btn">.</button>
-      <button class="btn equals bg-green-500 text-white hover:bg-green-600">=</button>
-      <button class="btn operator bg-yellow-400 dark:bg-yellow-600">+</button>
+      <button class="btn equals col-span-1 bg-green-500 text-white hover:bg-green-600">=</button>
+      <button class="btn operator">+</button>
 
-      <button class="btn col-span-4 bg-red-500 text-white hover:bg-red-600" id="clear">C</button>
-    </div>
-
-    <!-- Scientific Buttons -->
-    <div id="scientific-buttons" class="grid grid-cols-4 gap-3 mt-4 hidden">
-      <button class="btn sci-fn bg-blue-300 dark:bg-blue-700">sin</button>
-      <button class="btn sci-fn bg-blue-300 dark:bg-blue-700">cos</button>
-      <button class="btn sci-fn bg-blue-300 dark:bg-blue-700">tan</button>
-      <button class="btn sci-fn bg-blue-300 dark:bg-blue-700">√</button>
-
-      <button class="btn sci-fn bg-blue-300 dark:bg-blue-700">^</button>
-      <button class="btn sci-fn bg-blue-300 dark:bg-blue-700">log</button>
-      <button class="btn sci-fn bg-blue-300 dark:bg-blue-700">π</button>
-      <button class="btn sci-fn bg-blue-300 dark:bg-blue-700">e</button>
+      <!-- Row 5 -->
+      <button id="clear" class="btn col-span-4 bg-red-500 text-white hover:bg-red-600">C</button>
     </div>
   </div>
 
-  <!-- Click sound -->
-  <audio id="click-sound" src="sounds/click.mp3" preload="auto"></audio>
-
-  <style>
-    .btn {
-      @apply bg-gray-200 dark:bg-gray-700 text-xl font-semibold p-4 rounded-lg transition hover:bg-gray-300 dark:hover:bg-gray-600;
-    }
-  </style>
-
-  <script>
-    // Basic theme toggle script
-    document.getElementById('toggle-theme').addEventListener('click', () => {
-      document.documentElement.classList.toggle('dark');
-    });
-
-    // Show/hide scientific section
-    document.getElementById('toggle-scientific').addEventListener('click', () => {
-      document.getElementById('scientific-buttons').classList.toggle('hidden');
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
