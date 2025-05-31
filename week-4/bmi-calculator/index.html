@@ -1,27 +1,122 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Joseph Ogbole - BMI Calculator</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Manifest -->
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="icon" href="icon-192.png" />
+  <meta name="theme-color" content="#3b82f6" />
+
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .fade-in { animation: fadeIn 0.5s ease-out forwards; }
+  </style>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/service-worker.js").then(() =>
+        console.log("Service Worker Registered")
+      );
+    }
+  </script>
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
-  <div class="bg-white p-8 rounded shadow-md w-full max-w-md">
-    <h1 class="text-2xl font-bold mb-4 text-center">BMI Calculator</h1>
+<body class="bg-blue-50 flex flex-col items-center justify-center min-h-screen px-4">
+  <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg w-full max-w-md">
+    <h1 class="text-3xl font-bold mb-4 text-center text-blue-600">BMI Calculator</h1>
+
     <form id="bmi-form" class="space-y-4">
       <div>
         <label for="height" class="block text-sm font-medium">Height (cm):</label>
-        <input type="number" id="height" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
+        <input
+          type="number"
+          id="height"
+          class="mt-1 block w-full border border-gray-300 rounded-md p-2"
+          required
+          min="1"
+          step="any"
+        />
       </div>
       <div>
         <label for="weight" class="block text-sm font-medium">Weight (kg):</label>
-        <input type="number" id="weight" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
+        <input
+          type="number"
+          id="weight"
+          class="mt-1 block w-full border border-gray-300 rounded-md p-2"
+          required
+          min="1"
+          step="any"
+        />
       </div>
-      <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-md">Calculate BMI</button>
+      <div class="flex flex-col md:flex-row gap-2">
+        <button
+          type="submit"
+          class="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-md font-semibold transition"
+        >
+          Calculate BMI
+        </button>
+        <button
+          type="button"
+          id="reset"
+          class="flex-1 bg-gray-400 hover:bg-gray-500 text-white py-2 rounded-md font-semibold transition"
+        >
+          Reset
+        </button>
+      </div>
     </form>
-    <div id="result" class="mt-4 font-semibold text-center"></div>
+
+    <div id="result" class="mt-6 text-center text-lg font-medium hidden fade-in"></div>
+
+    <div id="progress-container" class="mt-4 hidden">
+      <label class="block text-sm font-medium">BMI Progress:</label>
+      <div class="w-full bg-gray-200 rounded-full h-4">
+        <div id="progress-bar" class="h-4 rounded-full transition-all"></div>
+      </div>
+    </div>
+
+    <canvas id="bmiChart" class="mt-6 hidden"></canvas>
+
+    <div id="tips" class="mt-6 text-sm text-gray-600 hidden">
+      <h2 class="font-semibold">💡 Health Tips:</h2>
+      <ul class="list-disc list-inside space-y-1">
+        <li>Maintain a balanced diet and regular exercise.</li>
+        <li>Monitor your BMI over time for a healthier you.</li>
+        <li>Consult a doctor if BMI is consistently too high or low.</li>
+      </ul>
+    </div>
+
+    <div class="mt-4 text-center">
+      <button
+        id="clear-history"
+        class="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-md transition"
+      >
+        Clear BMI History
+      </button>
+    </div>
+
+    <div class="mt-6 text-sm text-gray-600">
+      <p><strong>BMI Categories:</strong></p>
+      <ul class="list-disc list-inside space-y-1">
+        <li title="BMI below 18.5 is considered underweight.">Underweight: &lt; 18.5</li>
+        <li title="A BMI between 18.5 and 24.9 indicates a healthy weight.">Normal weight: 18.5 – 24.9</li>
+        <li title="A BMI between 25 and 29.9 is categorized as overweight.">Overweight: 25 – 29.9</li>
+        <li title="A BMI of 30 or higher indicates obesity.">Obese: ≥ 30</li>
+      </ul>
+    </div>
   </div>
-  <script src="./dist/main.js"></script>
+
+  <script type="module" src="./dist/main.js"></script>
+
 </body>
 </html>
