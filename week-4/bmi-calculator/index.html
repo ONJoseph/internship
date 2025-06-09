@@ -5,8 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BMI Calculator</title>
     <link rel="icon" href="icon-192.png" />
+
     <!-- Tailwind via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Preload theme from localStorage BEFORE page paints
+      if (localStorage.theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
+
     <!-- Animate.css -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
     <link href="style.css" rel="stylesheet" />
@@ -15,8 +23,9 @@
     <main class="bg-white dark:bg-gray-900 p-6 sm:p-8 rounded-xl shadow-lg w-full max-w-md mx-auto">
       <div class="flex justify-between items-center mb-6">
         <h1 class="text-3xl font-bold text-blue-600 dark:text-blue-300">BMI Calculator</h1>
-        <button id="themeToggle" class="p-2 bg-gray-200 dark:bg-gray-700 rounded">🌓</button>
+        <button id="themeToggle" class="p-2 rounded">🌙</button>
       </div>
+
       <form id="bmiForm" class="space-y-4">
         <div>
           <label for="height" class="block text-sm">Height (m)</label>
@@ -33,13 +42,16 @@
           <button type="reset" class="bg-gray-300 dark:bg-gray-600 text-black dark:text-white px-4 py-2 rounded hover:bg-gray-400 transition">Reset</button>
         </div>
       </form>
+
       <div id="result" class="mt-6 text-lg font-semibold text-center opacity-0 transition-opacity"></div>
       <div id="success-msg" class="hidden mt-4 p-3 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded animate__animated"></div>
+
       <div class="mt-6">
         <h2 class="font-semibold text-lg">History</h2>
         <ul id="history" class="list-disc list-inside text-sm"></ul>
       </div>
     </main>
+
     <script src="main.js" defer></script>
   </body>
 </html>

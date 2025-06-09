@@ -5,19 +5,25 @@ const bmiResultEl = document.getElementById("result");
 const successMsgEl = document.getElementById("success-msg");
 const historyEl = document.getElementById("history");
 let bmiHistory = JSON.parse(localStorage.getItem("bmiHistory") || "[]");
-themeToggleBtn === null || themeToggleBtn === void 0 ? void 0 : themeToggleBtn.addEventListener("click", () => {
-    const d = document.documentElement;
-    d.classList.toggle("dark");
-    localStorage.theme = d.classList.contains("dark") ? "dark" : "light";
-});
+// Apply saved theme on load
 if (localStorage.theme === "dark") {
     document.documentElement.classList.add("dark");
+    if (themeToggleBtn)
+        themeToggleBtn.textContent = "☀️";
 }
+themeToggleBtn === null || themeToggleBtn === void 0 ? void 0 : themeToggleBtn.addEventListener("click", () => {
+    const htmlEl = document.documentElement;
+    const isDark = htmlEl.classList.toggle("dark");
+    localStorage.theme = isDark ? "dark" : "light";
+    themeToggleBtn.textContent = isDark ? "☀️" : "🌙";
+});
+// Load last BMI result
 const lastBmi = localStorage.getItem("bmiLast");
 if (lastBmi && bmiResultEl) {
     bmiResultEl.textContent = lastBmi;
     bmiResultEl.classList.add("opacity-100", "text-green-500");
 }
+// Load history
 bmiHistory.forEach(msg => {
     const li = document.createElement("li");
     li.textContent = msg;
@@ -63,6 +69,6 @@ function showSuccess() {
         successMsgEl.textContent = "BMI Calculated!";
         successMsgEl.className = "mt-4 p-3 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded animate__animated animate__fadeIn";
         successMsgEl.classList.remove("hidden");
-        setTimeout(() => successMsgEl.classList.add("hidden"), 2500);
+        setTimeout(() => successMsgEl === null || successMsgEl === void 0 ? void 0 : successMsgEl.classList.add("hidden"), 2500);
     }
 }
