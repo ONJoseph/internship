@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "none",
+    "outFile": "main.js",
+    "strict": true
+  }
+}
