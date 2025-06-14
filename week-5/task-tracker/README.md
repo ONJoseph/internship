@@ -1,54 +1,114 @@
-# React + TypeScript + Vite
+# 📋 Task Tracker – React + Vite + TypeScript + Tailwind
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📗 Table of Contents
+- [📖 About the Project](#about-the-project)
+- [🛠 Built With](#built-with)
+- [💻 Getting Started](#getting-started)
+  - [🧰 Prerequisites](#prerequisites)
+  - [🔧 Setup](#setup)
+  - [📦 Install](#install)
+  - [🚀 Usage](#usage)
+- [🌐 Front End](#front-end)
+- [👥 Authors](#authors)
+- [🔭 Future Features](#future-features)
+- [🤝 Contributing](#contributing)
+- [⭐️ Show Your Support](#️show-your-support)
+- [🙏 Acknowledgements](#acknowledgements)
+- [📝 License](#license)
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📖 About the Project
 
-## Expanding the ESLint configuration
+This Task Tracker app was developed for AUTOWAVE Week 5 intern training. It demonstrates core React concepts such as functional components, props, local state with the `useState` hook, and modern styling using Tailwind CSS. TypeScript is used throughout for strong typing of props and component state.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Key features include:
+- Add and remove tasks
+- Component-based architecture using React
+- Props passed between parent and child components
+- Local state management with `useState`
+- Fully responsive design using Tailwind CSS
+- Type-safe props and component state
+- Deployed using Cloudflare Pages
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠 Built With
+- ✅ React (with Vite)
+- ✅ TypeScript
+- ✅ Tailwind CSS
+- ✅ Git & GitHub
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## 💻 Getting Started
+
+### 🧰 Prerequisites
+- [Git](https://git-scm.com/)
+- [Node.js](https://nodejs.org/)
+- [VS Code](https://code.visualstudio.com/)
+
+### 🔧 Setup
+
+```bash
+git clone https://github.com/ONJoseph/task-tracker.git
+cd task-tracker
+
+
+## 📦 Install
+- npm install
+
+## 🚀 🏃 Usage
+- npm run dev
+
+## 🌐 Front End
+💻 Live Demo: [![Cloudflare Pages](https://img.shields.io/badge/View%20Live%20Demo-blue?style=for-the-badge&logo=github)]()
+
+GitHub PR link: [your PR link]
+
+## 🔭 Future Features
+- 🗂️ Add edit functionality to tasks
+
+- 🕒 Due date and reminder system
+
+- 📊 Filter tasks by status (active/completed)
+
+- 💾 Store tasks in localStorage or backend
+
+
+
+## 👥 Author
+👤 Joseph Ogbole
+- GitHub: [@ONJoseph](https://github.com/ONJoseph)
+- Twitter: [@ONJoseph1](https://twitter.com/ONJoseph1)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/o-n-joseph-ba8425147/)
+
+## 🤝 Contributing
+Contributions are welcome! Feel free to:
+
+Fork the repository
+
+Create a new feature branch
+
+Submit a pull request
+
+## ⭐️ Show Your Support
+If you liked this project, show some love by starring ⭐️ the repo on GitHub!
+
+## 🙏 Acknowledgements
+Special thanks to:
+
+- Special thanks to:
+
+- AUTOWAVE Intern Training Team
+
+- React Documentation
+
+- Tailwind CSS Docs
+
+- Vite + TypeScript Community
+
+- FreeCodeCamp & Net Ninja for tutorials
+
+## 📝 License
+This project is [MIT](./LICENSE) licensed.

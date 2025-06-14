@@ -1,35 +1,59 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import TaskInput from "./components/TaskInput";
+import TaskList from "./components/TaskList";
+import type { Task } from "./types/task";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const [tasks, setTasks] = useState<Task[]>([]);
+
+  const addTask = (title: string) => {
+    const newTask = { id: Date.now(), title };
+    setTasks((prev) => [...prev, newTask]);
+  };
+
+  const removeTask = (id: number) => {
+    setTasks((prev) => prev.filter((task) => task.id !== id));
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="min-h-screen flex flex-col bg-gray-100">
+      <main className="flex-grow w-full max-w-xl mx-auto mt-10 p-6 bg-white rounded shadow">
+        <h1 className="text-2xl font-bold mb-4 text-center text-blue-700">Task Tracker</h1>
+        <TaskInput addTask={addTask} />
+        <TaskList tasks={tasks} removeTask={removeTask} />
+      </main>
 
-export default App
+      <footer className="w-full text-center text-sm text-gray-600 py-6">
+        <p>&copy; {new Date().getFullYear()} Joseph Ogbole. All rights reserved.</p>
+        <div className="flex justify-center space-x-4 mt-2">
+          <a
+            href="https://github.com/ONJoseph"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline"
+          >
+            GitHub
+          </a>
+          <a
+            href="https://twitter.com/ONJoseph1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline"
+          >
+            Twitter
+          </a>
+          <a
+            href="https://www.linkedin.com/in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline"
+          >
+            LinkedIn
+          </a>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default App;
