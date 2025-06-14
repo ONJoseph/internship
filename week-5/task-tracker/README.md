@@ -62,7 +62,7 @@ cd task-tracker
 - npm run dev
 
 ## 🌐 Front End
-💻 Live Demo: [![Cloudflare Pages](https://img.shields.io/badge/View%20Live%20Demo-blue?style=for-the-badge&logo=github)]()
+💻 Live Demo: [![Cloudflare Pages](https://img.shields.io/badge/View%20Live%20Demo-blue?style=for-the-badge&logo=github)](https://task-tracker-473.pages.dev/)
 
 GitHub PR link: [your PR link]
 
