@@ -7,7 +7,7 @@ const App = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
 
   const addTask = (title: string) => {
-    const newTask = { id: Date.now(), title };
+    const newTask: Task = { id: Date.now(), title, completed: false };
     setTasks((prev) => [...prev, newTask]);
   };
 
@@ -15,12 +15,20 @@ const App = () => {
     setTasks((prev) => prev.filter((task) => task.id !== id));
   };
 
+  const toggleTask = (id: number) => {
+    setTasks((prev) =>
+      prev.map((task) =>
+        task.id === id ? { ...task, completed: !task.completed } : task
+      )
+    );
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-gray-100">
       <main className="flex-grow w-full max-w-xl mx-auto mt-10 p-6 bg-white rounded shadow">
         <h1 className="text-2xl font-bold mb-4 text-center text-blue-700">Task Tracker</h1>
         <TaskInput addTask={addTask} />
-        <TaskList tasks={tasks} removeTask={removeTask} />
+        <TaskList tasks={tasks} removeTask={removeTask} toggleTask={toggleTask} />
       </main>
 
       <footer className="w-full text-center text-sm text-gray-600 py-6">
