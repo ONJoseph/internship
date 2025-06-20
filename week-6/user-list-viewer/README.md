@@ -61,9 +61,9 @@ A simple app that fetches a list of users using JSONPlaceholder, displays data w
 - The app will be available at http://localhost:5173
 
 ## 🌐 Front End
-💻 Live Demo: [![Cloudflare Pages](https://img.shields.io/badge/View%20Live%20Demo-blue?style=for-the-badge&logo=github)](https://task-tracker-473.pages.dev/)
+💻 Live Demo: [![Cloudflare Pages](https://img.shields.io/badge/View%20Live%20Demo-blue?style=for-the-badge&logo=github)](https://user-list-viewer.pages.dev/)
 
-GitHub PR link: [your PR link]
+GitHub PR link: [https://github.com/Autowave-Integrated/internship/pull/5]
 
 ## 🔭 Future Features
 - 🔍 Advanced filtering options (by email, city)
