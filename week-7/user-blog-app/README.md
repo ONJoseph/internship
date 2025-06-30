@@ -72,7 +72,7 @@ git checkout week7
 - Visit http://localhost:5173 in your browser.
 
 ## 🌐 Live Demo
-- 🚀 Deployed App: [![Cloudflare Pages](https://img.shields.io/badge/View%20Live%20Demo-blue?style=for-the-badge&logo=github)](/)
+- 🚀 Deployed App: [![Cloudflare Pages](https://img.shields.io/badge/View%20Live%20Demo-blue?style=for-the-badge&logo=github)](https://user-blog-app.pages.dev/)
 
 ## GitHub PR Link
 
