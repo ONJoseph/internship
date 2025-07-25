@@ -16,33 +16,67 @@ function RegistrationForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [errors, setErrors] = useState<string[]>([]);
 
-  const validate = () => {
-    const errs: string[] = [];
-    if (!name.trim()) errs.push("Name is required.");
-    if (!email.includes("@")) errs.push("Invalid email address.");
-    if (password.length < 6) errs.push("Password must be at least 6 characters.");
-    if (password !== confirmPassword) errs.push("Passwords do not match.");
-    setErrors(errs);
-    return errs.length === 0;
+  const [errors, setErrors] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const validateName = (value: string) => {
+    if (!value.trim()) return "Name is required.";
+    return "";
+  };
+
+  const validateEmail = (value: string) => {
+    if (!value.trim()) return "Email is required.";
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(value)) return "Invalid email format.";
+    return "";
+  };
+
+  const validatePassword = (value: string) => {
+    if (value.length < 6) return "Password must be at least 6 characters.";
+    return "";
+  };
+
+  const validateConfirmPassword = (value: string) => {
+    if (value !== password) return "Passwords do not match.";
+    return "";
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (validate()) {
+    const nameError = validateName(name);
+    const emailError = validateEmail(email);
+    const passwordError = validatePassword(password);
+    const confirmPasswordError = validateConfirmPassword(confirmPassword);
+
+    setErrors({
+      name: nameError,
+      email: emailError,
+      password: passwordError,
+      confirmPassword: confirmPasswordError,
+    });
+
+    if (!nameError && !emailError && !passwordError && !confirmPasswordError) {
       console.log({ name, email, password });
       alert(`✅ Registration successful! Welcome, ${name}!`);
-      // Reset
+      // Reset form
       setName("");
       setEmail("");
       setPassword("");
       setConfirmPassword("");
-      setErrors([]);
+      setErrors({ name: "", email: "", password: "", confirmPassword: "" });
     }
   };
 
-  const isValid = name && email && password && confirmPassword && errors.length === 0;
+  const isValid =
+    !validateName(name) &&
+    !validateEmail(email) &&
+    !validatePassword(password) &&
+    !validateConfirmPassword(confirmPassword);
 
   return (
     <form
@@ -60,8 +94,14 @@ function RegistrationForm() {
           type="text"
           className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring"
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => {
+            setName(e.target.value);
+            setErrors((prev) => ({ ...prev, name: validateName(e.target.value) }));
+          }}
         />
+        {errors.name && (
+          <p className="text-red-600 text-sm mt-1">{errors.name}</p>
+        )}
       </div>
 
       <div>
@@ -73,8 +113,14 @@ function RegistrationForm() {
           type="email"
           className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => {
+            setEmail(e.target.value);
+            setErrors((prev) => ({ ...prev, email: validateEmail(e.target.value) }));
+          }}
         />
+        {errors.email && (
+          <p className="text-red-600 text-sm mt-1">{errors.email}</p>
+        )}
       </div>
 
       <div>
@@ -86,8 +132,14 @@ function RegistrationForm() {
           type="password"
           className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) => {
+            setPassword(e.target.value);
+            setErrors((prev) => ({ ...prev, password: validatePassword(e.target.value) }));
+          }}
         />
+        {errors.password && (
+          <p className="text-red-600 text-sm mt-1">{errors.password}</p>
+        )}
       </div>
 
       <div>
@@ -99,19 +151,18 @@ function RegistrationForm() {
           type="password"
           className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring"
           value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
+          onChange={(e) => {
+            setConfirmPassword(e.target.value);
+            setErrors((prev) => ({
+              ...prev,
+              confirmPassword: validateConfirmPassword(e.target.value),
+            }));
+          }}
         />
+        {errors.confirmPassword && (
+          <p className="text-red-600 text-sm mt-1">{errors.confirmPassword}</p>
+        )}
       </div>
-
-      {errors.length > 0 && (
-        <div className="bg-red-100 border border-red-400 text-red-700 p-3 rounded">
-          <ul className="list-disc list-inside">
-            {errors.map((err, idx) => (
-              <li key={idx}>{err}</li>
-            ))}
-          </ul>
-        </div>
-      )}
 
       <button
         type="submit"
@@ -147,6 +198,15 @@ function Footer() {
           rel="noopener noreferrer"
         >
           LinkedIn
+        </a>{" "}
+        |{" "}
+        <a
+          href="https://twitter.com/ONJoseph1"
+          className="underline"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Twitter
         </a>
       </p>
     </footer>
