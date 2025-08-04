@@ -1,29 +1,38 @@
-import React, { createContext, useEffect, useState, useContext } from 'react';
+import { createContext, useContext, useReducer } from "react";
 
-type Theme = 'light' | 'dark';
+type ThemeState = { darkMode: boolean };
+type ThemeAction = { type: "TOGGLE_THEME" };
 
 const ThemeContext = createContext<{
-  theme: Theme;
+  state: ThemeState;
   toggleTheme: () => void;
-}>({ theme: 'light', toggleTheme: () => {} });
+} | null>(null);
+
+const themeReducer = (state: ThemeState, action: ThemeAction): ThemeState => {
+  switch (action.type) {
+    case "TOGGLE_THEME":
+      return { darkMode: !state.darkMode };
+    default:
+      return state;
+  }
+};
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  const [theme, setTheme] = useState<Theme>(
-    (localStorage.getItem('theme') as Theme) || 'light'
-  );
+  const [state, dispatch] = useReducer(themeReducer, { darkMode: false });
 
-  useEffect(() => {
-    localStorage.setItem('theme', theme);
-    document.documentElement.className = theme;
-  }, [theme]);
-
-  const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light');
+  const toggleTheme = () => dispatch({ type: "TOGGLE_THEME" });
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children}
+    <ThemeContext.Provider value={{ state, toggleTheme }}>
+      <div className={state.darkMode ? "dark bg-gray-900 text-white min-h-screen" : "bg-white text-gray-900 min-h-screen"}>
+        {children}
+      </div>
     </ThemeContext.Provider>
   );
 };
 
-export const useTheme = () => useContext(ThemeContext);
+export const useTheme = () => {
+  const ctx = useContext(ThemeContext);
+  if (!ctx) throw new Error("useTheme must be used inside ThemeProvider");
+  return ctx;
+};

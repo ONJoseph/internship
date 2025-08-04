@@ -1,11 +1,26 @@
 export default function Footer() {
   return (
-    <footer className="mt-10 text-center text-sm text-gray-500">
-      <p>&copy; {new Date().getFullYear()} Joseph Ogbole</p>
-      <div className="flex justify-center space-x-4 mt-2">
-        <a href="https://github.com/ONJoseph" target="_blank">GitHub</a>
-        <a href="https://linkedin.com/in/onjoseph" target="_blank">LinkedIn</a>
-      </div>
+    <footer className="text-center text-sm py-4 bg-gray-200 dark:bg-gray-800 dark:text-white">
+      <p>
+        &copy; 2025 Joseph Ogbole —{" "}
+        <a
+          href="https://github.com/ONJoseph"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline"
+        >
+          GitHub
+        </a>{" "}
+        |{" "}
+        <a
+          href="https://www.linkedin.com/in/o-n-joseph/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline"
+        >
+          LinkedIn
+        </a>
+      </p>
     </footer>
   );
 }

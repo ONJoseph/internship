@@ -3,11 +3,11 @@ import { useAuth } from '../components/context/AuthContext';
 
 const LoginForm: React.FC<{ onLoginSuccess: () => void }> = ({ onLoginSuccess }) => {
   const [username, setUsername] = useState('');
-  const { dispatch } = useAuth();
+  const { login } = useAuth();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    dispatch({ type: 'LOGIN', payload: { username } });
+    login(username);
     onLoginSuccess();
   };
 

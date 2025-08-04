@@ -1,49 +1,47 @@
-import React, { createContext, useReducer, useEffect, useContext } from 'react';
+import { createContext, useContext, useReducer } from "react";
 
-interface User {
-  username: string;
-}
-
-type AuthState = {
-  user: User | null;
-};
-
+type User = { username: string } | null;
+type AuthState = { user: User };
 type AuthAction =
-  | { type: 'LOGIN'; payload: User }
-  | { type: 'LOGOUT' };
+  | { type: "LOGIN"; payload: User }
+  | { type: "LOGOUT" }
+  | { type: "REGISTER"; payload: User };
 
 const AuthContext = createContext<{
   state: AuthState;
-  dispatch: React.Dispatch<AuthAction>;
-}>({ state: { user: null }, dispatch: () => {} });
+  login: (username: string) => void;
+  logout: () => void;
+  register: (username: string) => void;
+} | null>(null);
 
-const initialState: AuthState = {
-  user: JSON.parse(localStorage.getItem('authUser') || 'null'),
-};
-
-function authReducer(state: AuthState, action: AuthAction): AuthState {
+const authReducer = (state: AuthState, action: AuthAction): AuthState => {
   switch (action.type) {
-    case 'LOGIN':
+    case "LOGIN":
+    case "REGISTER":
       return { user: action.payload };
-    case 'LOGOUT':
+    case "LOGOUT":
       return { user: null };
     default:
       return state;
   }
-}
+};
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-  const [state, dispatch] = useReducer(authReducer, initialState);
+  const [state, dispatch] = useReducer(authReducer, { user: null });
 
-  useEffect(() => {
-    localStorage.setItem('authUser', JSON.stringify(state.user));
-  }, [state.user]);
+  const login = (username: string) => dispatch({ type: "LOGIN", payload: { username } });
+  const register = (username: string) => dispatch({ type: "REGISTER", payload: { username } });
+  const logout = () => dispatch({ type: "LOGOUT" });
 
   return (
-    <AuthContext.Provider value={{ state, dispatch }}>
+    <AuthContext.Provider value={{ state, login, logout, register }}>
       {children}
     </AuthContext.Provider>
   );
 };
 
-export const useAuth = () => useContext(AuthContext);
+export const useAuth = () => {
+  const ctx = useContext(AuthContext);
+  if (!ctx) throw new Error("useAuth must be used within AuthProvider");
+  return ctx;
+};
