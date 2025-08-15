@@ -78,7 +78,7 @@ git checkout week9
 - Visit http://localhost:5173 in your browser.
 
 ## 🌐 Live Demo
-- 🚀 Deployed App: [![Cloudflare Pages](https://img.shields.io/badge/View%20Live%20Demo-blue?style=for-the-badge&logo=github)](https://46e277e2.user-todo-auth-app.pages.dev/login)
+- 🚀 Deployed App: [![Cloudflare Pages](https://img.shields.io/badge/View%20Live%20Demo-blue?style=for-the-badge&logo=github)](https://46e277e2.user-todo-auth-app.pages.dev/)
 
 ## GitHub PR Link
 
