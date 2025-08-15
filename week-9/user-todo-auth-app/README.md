@@ -82,7 +82,7 @@ git checkout week9
 
 ## GitHub PR Link
 
-[https://github.com/ONJoseph/]
+[https://github.com/Autowave-Integrated/internship/pull/6]
 
 ## 👥 Author
 👤 Joseph Ogbole
